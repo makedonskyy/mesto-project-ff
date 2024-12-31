@@ -4,7 +4,7 @@ const openModal = popup => {
 	popup.classList.add(popupClassesConfig.animatedPopupClass);
 	setTimeout(() => {
 		popup.classList.add(popupClassesConfig.openPopupClass);
-	}, 100);
+	}, 0);
 	document.addEventListener('keydown', closeModalEsc)
 	popup.addEventListener('click', closeModalByOverlay)
 }
