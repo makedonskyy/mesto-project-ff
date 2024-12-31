@@ -1,17 +1,20 @@
+import {popupClassesConfig} from "../utils/constants";
+
 const openModal = popup => {
-	if (!popup.classList.contains('popup_is-opened')) {
-		popup.classList.add("popup_is-animated");  // сначала анимация
-		setTimeout(() => {
-			popup.classList.add("popup_is-opened");  // потом только открытие
-		}, 100);
-		document.addEventListener('keydown', closeModalEsc)
-		popup.addEventListener('click', closeModalByOverlay)
-	}
+	popup.classList.add(popupClassesConfig.animatedPopupClass);
+	setTimeout(() => {
+		popup.classList.add(popupClassesConfig.openPopupClass);
+	}, 100);
+	document.addEventListener('keydown', closeModalEsc)
+	popup.addEventListener('click', closeModalByOverlay)
 }
 
 const closeModal = popup => {
 	if (popup) {
-		popup.classList.remove('popup_is-opened')
+		popup.classList.remove(popupClassesConfig.openPopupClass)
+		setTimeout(() => {
+			popup.classList.remove(popupClassesConfig.animatedPopupClass);
+		}, 600);
 		document.removeEventListener('keydown', closeModalEsc)
 		popup.removeEventListener('click', closeModalByOverlay)
 	}

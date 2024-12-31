@@ -6,3 +6,8 @@ export const validationConfig = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible',
 }
+
+export const popupClassesConfig = {
+    openPopupClass: "popup_is-opened",
+    animatedPopupClass: "popup_is-animated",
+};
