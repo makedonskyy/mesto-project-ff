@@ -1,8 +1,9 @@
-export { closeModal, openModal }
-
 const openModal = popup => {
 	if (!popup.classList.contains('popup_is-opened')) {
-		popup.classList.add('popup_is-opened')
+		popup.classList.add("popup_is-animated");  // сначала анимация
+		setTimeout(() => {
+			popup.classList.add("popup_is-opened");  // потом только открытие
+		}, 100);
 		document.addEventListener('keydown', closeModalEsc)
 		popup.addEventListener('click', closeModalByOverlay)
 	}
@@ -30,3 +31,5 @@ const closeModalByOverlay = evt => {
 		closeModal(evt.currentTarget)
 	}
 }
+
+export { closeModal, openModal }

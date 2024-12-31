@@ -1,4 +1,3 @@
-export { clearValidation, enableValidation }
 const showInputError = (formElement, inputElement, errorMessage, validationConfig) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
 	inputElement.classList.add(validationConfig.inputErrorClass)
@@ -65,3 +64,5 @@ const clearValidation = (formElement, validationConfig) => {
 	})
 	toggleButtonState(inputList, buttonElement, validationConfig)
 }
+
+export { clearValidation, enableValidation }
